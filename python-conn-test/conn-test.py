@@ -27,8 +27,9 @@ finally:
    curs.close()
 
 curs = con.cursor()
+query = "SELECT * FROM " + username + "_DB.PUBLIC.PEOPLE"
 try:
-   curs.execute("SELECT * FROM PANDA_DB.PUBLIC.PEOPLE")
+   curs.execute(query)
    for(col1, col2, col3) in curs:
       print('{0}, {1}, {2}'.format(col1, col2, col3))
 finally:
