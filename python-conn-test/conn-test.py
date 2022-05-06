@@ -8,8 +8,6 @@ defwh = f"{username}_WH"
 defdb = f"{username}_DB"
 defschema = "PUBLIC"
 
-# current = 'SnowPass@1$'
-
 con = snowflake.connector.connect(
    user=username,
    password=pword,
