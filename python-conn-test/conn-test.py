@@ -4,9 +4,9 @@ import getpass
 account = input('Snowflake account: ')
 username = input('User name: ')
 pword = getpass.getpass('Password: ')
-defwh = username + '_WH'
-defdb = username + '_DB'
-defschema = 'PUBLIC'
+defwh = f"{username}_WH"
+defdb = f"{username}_DB"
+defschema = "PUBLIC"
 
 # current = 'SnowPass@1$'
 
@@ -18,6 +18,8 @@ con = snowflake.connector.connect(
    database=defdb,
    schema=defschema
 )
+
+# test the connection
 curs = con.cursor()
 try:
    curs.execute("SELECT CURRENT_TIMESTAMP()")
@@ -26,8 +28,9 @@ try:
 finally:
    curs.close()
 
+# run a basic query
 curs = con.cursor()
-query = "SELECT * FROM " + username + "_DB.PUBLIC.PEOPLE"
+query = f"SELECT * FROM {username}_DB.PUBLIC.PEOPLE"
 try:
    curs.execute(query)
    for(col1, col2, col3) in curs:
@@ -35,12 +38,16 @@ try:
 finally:
    curs.close()
 
-# import pandas as pd
-# curs = con.cursor()
-# try:
-#    curs.execute("SELECT * FROM PANDA_DB.PUBLIC.PEOPLE")
-#    dat = curs.fetchall()
-#    peopleDF = pd.DataFrame(dat, columns=curs.description)
-#    print(peopleDF.to_string())
-# finally:
-#    curs.close()
+# pandas example with same query as above
+import pandas as pd
+curs = con.cursor()
+query = f"SELECT * FROM {username}_DB.PUBLIC.PEOPLE"
+try:
+   curs.execute(query)
+   dat = curs.fetchall()
+   peopleDF = pd.DataFrame(dat, columns=curs.description)
+   print(peopleDF.to_string())
+finally:
+   curs.close()
+
+# TODO: add dunder main test and enclose code in def main()
