@@ -1,0 +1,10 @@
+INTRO CHAT BLURB:
+Hi, my name's Keith Ratliff and I'm an instructor in the training team at Snowflake.
+We're a part of the Professional Services and Training organization, helping our
+customers get up, get running, and be effective at using Snowflake to solve your use cases.
+I was previously in PS&T at a Hadoop company (Cloudera) for 6 years,
+worked in the eBay Marketplace operations center for 6 years,
+and had a long run in PS&T at Sun Microsystems.
+You can find me on LinkedIn here: https://www.linkedin.com/in/j-keith-ratliff/
+In my spare time, I collect and read comic books, and I've been lucky to pick up a few rare gems.
+
